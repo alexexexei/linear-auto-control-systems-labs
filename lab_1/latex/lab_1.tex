@@ -1,0 +1,144 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{cmap}
+\usepackage[english, russian]{babel}
+\usepackage{indentfirst}
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm]{geometry}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{fancybox, fancyhdr}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{matlab-prettifier}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Лабораторная работа №1}
+\fancyhead[R]{Линейные системы автоматического управления}
+\fancyfoot[C]{\thepage}
+\graphicspath{{images/}}
+\usetikzlibrary{patterns}
+\definecolor{LightGray}{gray}{0.95}
+\definecolor{LightGray2}{gray}{0.7}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={contents setup},
+    pdfpagemode=FullScreen,
+}
+\setlength{\parskip}{1.5mm}
+\setlength{\headheight}{15pt}
+\setlength{\footskip}{15pt}
+\allowdisplaybreaks
+\newcommand{\frc}[2]{\raisebox{2pt}{$#1$}\big/\raisebox{-3pt}{$#2$}}
+
+\begin{document}
+    \begin{titlepage}
+
+        \begin{center}
+        \includegraphics[width=0.3\textwidth]{itmo.png} % requires itmo.png in /images folder
+        \vfill
+        
+        Федеральное государственное автономное образовательное учреждение высшего образования
+        «Национальный Исследовательский Университет ИТМО»\\
+        
+        \vfill
+        {\large\bf ЛАБОРАТОРНАЯ РАБОТА №1}\\
+        {\large\bf ПРЕДМЕТ «ЛИНЕЙНЫЕ СИСТЕМЫ АВТОМАТИЧЕСКОГО УПРАВЛЕНИЯ»}\\
+        {\large\bf ТЕМА «МОДЕЛИРОВАНИЕ ЛИНЕЙНЫХ ДИНАМИЧЕСКИХ СИСТЕМ»}\\
+        Вариант 4
+        \vfill
+
+        \begin{flushright}
+            \begin{minipage}{.45\textwidth}
+            {
+                \hbox{Преподаватель: Золотаревич В. П.}
+                \hbox{Студент: Румянцев А. А.}
+                \hbox{Поток: ЛСАУ R22 бак 4.1.1}
+                \hbox{}
+                \hbox{Факультет: СУиР}
+                \hbox{Группа: R3341}
+            }
+            \end{minipage}
+        \end{flushright}
+        
+        \vfill
+                
+        Санкт-Петербург\\
+        2024
+        \end{center}
+    \end{titlepage}
+    
+    \tableofcontents
+
+    \newpage
+    \section{Задание 1}
+    \subsection{Условие}
+    ля ля ля
+    $$n=3,\ \ a_0=8,\ \ a_1=6,\ \ a_2=2,\ \ b_0=12,\ \ b_1=1,\ \ b_2=10$$
+    $$y(0)=1,\ \ \dot{y}(0)=0.1,\ \ \ddot{y}(0)=-0.1$$
+
+
+    \subsection{Выполнение}
+    $$y^{(3)}+2y^{(2)}+6y^{(1)}+8y=10u^{(2)}+u^{(1)}+12u$$
+    $$p^3y+2p^2y+6py+8y=10p^2u+pu+12u$$
+    $$p^3y=-2p^2y-6py-8y+10p^2u+pu+12u$$
+    $$y=-\dfrac{2}{p}y-\dfrac{6}{p^2}y-\dfrac{8}{p^3}y+\dfrac{10}{p}u+\dfrac{1}{p^2}u+\dfrac{12}{p^3}u$$
+    $$y=\dfrac{1}{p}\left(10u-2y\right)+\dfrac{1}{p^2}\left(u-6y\right)+\dfrac{1}{p^3}\left(12u-8y\right)$$
+   
+    $$z_1=y\Rightarrow z_1(0)=y(0)=1$$
+    $$\dot{y}=\dot{z}_1=z_2+10u-2y\Rightarrow z_2=\dot{y}-10u+2y$$
+    $$z_2(0)=\dot{y}(0)-10u(0)+2y(0)=0.1-0+2=2.1$$
+    $$\dot{z}_2=z_3+u-6y\Rightarrow z_3=\dot{z_2}-u+6y$$
+    $$\dot{z}_2=\ddot{y}-10\dot{u}+2\dot{y}\Rightarrow z_3=\ddot{y}-10\dot{u}+2\dot{y}-u+6y$$
+    $$z_3=\ddot{y}(0)-10\dot{u}(0)+2\dot{y}(0)-u(0)+6y(0)=-0.1-0+2\cdot0.1-0+6\cdot1=6.1$$
+
+
+    \section{Задание 2}
+    \subsection{Условие}
+    ля ля ля
+    $$n=2,\ \
+    A=
+    \begin{bmatrix}
+        0 & -4\\
+        1 & -1
+    \end{bmatrix},\ \
+    B=
+    \begin{bmatrix}
+        0.5\\
+        0.25
+    \end{bmatrix},\ \
+    C^T=
+    \begin{bmatrix}
+        0\\
+        8
+    \end{bmatrix}$$
+    $$x_1(0)=-0.5,\ \ x_2(0)=0.13$$
+
+
+    \subsection{Выполнение}
+    $$
+    \begin{cases}
+        \dot{x}=Ax+Bu\\
+        y=Cx
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+    \dot{x}_1=0x_1-4x_2+0.5u\\
+    \dot{x}_2=1x_1-1x_2+0.25u\\
+    y=0x_1+8x_2
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        \dot{x}_1=-4x_2+0.5u\\
+        \dot{x}_2=x_1-x_2+0.25u\\
+        y=8x_2
+    \end{cases}
+    $$
+\end{document}
