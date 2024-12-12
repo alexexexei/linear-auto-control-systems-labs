@@ -96,13 +96,67 @@
 
 
     \subsection{Выполнение}
-    Скоро добавлю
+    \textbf{Синтез системы с использованием полинома Баттерворта.}
+    Полином Баттерворта в общем виде записывается как
+    $$a(s)=\prod_{i=1}^{n}\left(s-\omega e^{j\left(\frac{\pi}{2}+\frac{2i-1}{2n}\pi\right)}\right)=s^n+\alpha_{n-1}\omega s^{n-1}+...+\alpha_1\omega^{n-1}s+\omega^n$$
+    По графику нормированных переходных функций определим значение $t^*_{\text{П}}\Rightarrow t^*_{\text{П}}\approx6.8$
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.7]{norm_tf_bat.png}
+        \captionsetup{skip=0pt}
+        \caption{Нормированные переходные характеристики системы с характеристическим полиномом Баттерворта}
+        \label{fig:norm_tf_bat}
+    \end{figure}
+    \noindent Найдем среднегеометрический корень $\omega_0$
+    $$\omega_0=\sqrt[n]{|s_1s_2...s_n|}=\sqrt[n]{a_0}=\dfrac{t^*_{\text{П}}}{t_{\text{П}}}=\dfrac{6.8}{1.5}\approx4.53$$
+    Коэффициенты полинома выражаются как
+    $$a_j=\alpha_j\cdot\omega^{n-j}$$
+    Для случая с $n=4$ (см. методическое пособие)
+    $$
+    \begin{matrix}
+    \alpha_1=2.613\\
+    \alpha_2=3.414\\
+    \alpha_3=2.613
+    \end{matrix}
+    $$
+    Полином Баттерворта для системы порядка $n=4$ имеет вид ($\alpha_3$ самый левый не единичный коэффициент, $\alpha_1$ самый правый)
+    $$s^4+2.613\omega s^3+3.414\omega^2s^2+2.613\omega^3s+\omega^4$$
+    Подставим найденный $\omega_0$, чтобы получить коэффициенты $a_j$. Полином Баттерворта для нашего случая будет иметь вид
+    $$s^4+11.83689s^3+70.0583526s^2+242.903636s+421.1073368$$
+    Найдем коэффициент $b$. Из полинома Баттерворта имеем коэффициент $$a_0=421.1073368,$$
+    тогда $$b=k\cdot\omega^4=k\cdot a_0=2.5\cdot421.1073368=1052.768342$$
+    Модель вход-выход системы будет иметь вид
+    $$y^{(4)}+11.83689y^{(3)}+70.0583526y^{(2)}+242.903636y^{(1)}+421.1073368=1052.768342g$$
+    Рассчитаем корни полинома по формуле
+    $$s=\omega e^{j\left(\frac{\pi}{2}+\frac{2i-1}{2n}\pi\right)},\ i\in[1,2n]$$
+    С учетом $\omega_0$ получим
+    $$
+    \begin{matrix}
+    s_{1,4}=\pm \\
+    s_{2,3}=\pm
+    \end{matrix}
+    $$
+    Рассчитаем время переходного процесса
+    $$t_{\text{П}}\approx\dfrac{1}{\eta}\ln{\dfrac{1}{0.05}}\approx\dfrac{3}{\eta}=\dfrac{3}{?}\approx ?$$
+
+
+    \textbf{Синтез системы с использованием полинома Ньютона.}
+    Биномиальный полином в общем виде записывается как
+    $$\alpha(s)=(s+\omega)^n=s^n+\alpha_{n-1}\omega s^{n-1}+...+\alpha_1\omega^{n-1}s+\omega^n$$
+    По графику нормированных переходных функций определим значение $t^*_{\text{П}}\Rightarrow t^*_{\text{П}}\approx7.8$
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.7]{norm_tf_newton.png}
+        \captionsetup{skip=0pt}
+        \caption{Нормированные переходные характеристики системы с биноминальным характеристическим полиномом}
+        \label{fig:norm_tf_newton}
+    \end{figure}
 
 
     \section{Задание 2}
     \subsection{Условие}
-    Для каждого набора параметров $$\text{A:} b_0=b,\ \ b_1=2.5$$
-    $$\text{B:} b_0=b,\ \ b_1=0.5,\ \ b_2=0.25,\ \ b_3=1.25,\ \ b_4=2$$
+    Для каждого набора параметров $$\text{A:}\ b_0=b,\ \ b_1=2.5$$
+    $$\text{B:}\ b_0=b,\ \ b_1=0.5,\ \ b_2=0.25,\ \ b_3=1.25,\ \ b_4=2$$
     постройте переходные характеристики системы
     $$y^{(n)}+a_{n-1}y^{(n-1)}+...+a_1y^{(1)}+a_0y=b_mg^{(m)}+...+b_0g$$
     с коэффициентамиa $a_0,...,a_{n-1}$ и коэффициентом $b$,
@@ -121,7 +175,7 @@
         \caption{Схема эксперимента}
         \label{fig:scheme2}
     \end{figure}
-    Параметры блока ``Transfer Fcn'' в SIMULINK представлены на рисунке \ref{fig:window2_A}. Построим графики.
+    \noindent Параметры блока ``Transfer Fcn'' в SIMULINK представлены на рисунке \ref{fig:window2_A}. Построим графики.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.5]{scheme2_window_A.png}
@@ -177,7 +231,7 @@
         \caption{Схема эксперимента}
         \label{fig:scheme3}
     \end{figure}
-    Параметры блока ``Transfer Fcn'' в SIMULINK представлены на рисунке \ref{fig:windows3}. Построим графики.
+    \noindent Параметры блока ``Transfer Fcn'' в SIMULINK представлены на рисунке \ref{fig:windows3}. Построим графики.
     \begin{figure}[H]
         \centering
         \begin{subfigure}{0.3\textwidth}
