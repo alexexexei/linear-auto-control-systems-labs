@@ -1,0 +1,109 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{cmap}
+\usepackage[english, russian]{babel}
+\usepackage{indentfirst}
+\usepackage[left=20mm, top=20mm, right=20mm, bottom=20mm]{geometry}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{fancybox, fancyhdr}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{paralist}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Лабораторная работа №6}
+\fancyhead[R]{Линейные системы автоматического управления}
+\fancyfoot[C]{\thepage}
+\graphicspath{{images/}}
+\usetikzlibrary{patterns}
+\definecolor{LightGray}{gray}{0.95}
+\definecolor{LightGray2}{gray}{0.7}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={contents setup},
+    pdfpagemode=FullScreen,
+}
+\setlength{\parskip}{1.5mm}
+\setlength{\headheight}{15pt}
+\setlength{\footskip}{15pt}
+\allowdisplaybreaks
+
+\begin{document}
+    \begin{titlepage}
+
+        \begin{center}
+        \includegraphics[width=0.3\textwidth]{itmo.png} % requires itmo.png in /images folder
+        \vfill
+        
+        Федеральное государственное автономное образовательное учреждение высшего образования
+        «Национальный Исследовательский Университет ИТМО»\\
+        
+        \vfill
+        {\large\bf ЛАБОРАТОРНАЯ РАБОТА №6}\\
+        {\large\bf ПРЕДМЕТ «ЛИНЕЙНЫЕ СИСТЕМЫ АВТОМАТИЧЕСКОГО УПРАВЛЕНИЯ»}\\
+        {\large\bf ТЕМА «АНАЛИЗ ВЛИЯНИЯ НУЛЕЙ И ПОЛЮСОВ ПЕРЕДАТОЧНОЙ ФУНКЦИИ НА ДИНАМИЧЕСКИЕ СВОЙСТВА»}\\
+        Вариант 4
+        \vfill
+
+        \begin{flushright}
+            \begin{minipage}{.45\textwidth}
+            {
+                \hbox{Преподаватель: Золотаревич В. П.}
+                \hbox{Студент: Румянцев А. А.}
+                \hbox{Поток: ЛСАУ R22 бак 4.1.1}
+                \hbox{}
+                \hbox{Факультет: СУиР}
+                \hbox{Группа: R3341}
+            }
+            \end{minipage}
+        \end{flushright}
+        
+        \vfill
+                
+        Санкт-Петербург\\
+        2024
+        \end{center}
+    \end{titlepage}
+    
+    \tableofcontents
+
+    \newpage
+    \section{Цель работы}
+    Изучить связь характера переходной характеристики,
+    динамических свойств системы с размещением на комплексной
+    плоскости нулей и полюсов.
+
+
+    \section{Задание 1}
+    По заданным в табл. 6.3 значениям постоянных n t k, определите
+    параметры системы (6.1) с характеристическим полиномом Баттерворта и би-
+    номиальным полиномом. Для каждого случая рассчитайте корни характеристи-
+    ческого полинома (6.2) и оцените время переходного процесса по формуле (6.6).
+    Составьте схему моделирования системы и постройте переходные характери-
+    стики, соответствующие двум типам распределения корней характеристическо-
+    го уравнения.
+
+
+    \section{Задание 2}
+    Для каждого набора параметров b bm0 , ,… , приведенных в табл. 6.4 и
+    6.5, постройте переходные характеристики системы (6.7) с коэффициентами
+    a a n0 1, ,… -- и коэффициентом b, рассчитанными в п.1 для биномиального распре-
+    деления корней характеристического уравнения.
+
+
+    \section{Задание 3}
+    Для набора параметров b bm0 , ,… и внешнего воздействия g t( ) , приве-
+    денных в табл. 6.6, постройте реакцию системы (6.7) с нулевыми начальными
+    условиями и коэффициентами a a n0 1,… -- , рассчитанными в п.1 для биномиаль-
+    ного распределения корней характеристического уравнения. На экран монитора
+    выводить графики y t g t( ), ( ) 
+\end{document}
