@@ -132,12 +132,15 @@
     С учетом $\omega_0$ получим
     $$
     \begin{matrix}
-    s_{1,4}=\pm \\
-    s_{2,3}=\pm
+    s_{1,4}=-1.7336\pm4.1852i\\
+    s_{5,8}=\ \ \, 1.7336\mp4.1852i\\
+    s_{2,3}=-4.1852\pm1.7336i\\
+    s_{6,7}=\ \ \, 4.1852\mp1.7336i
     \end{matrix}
     $$
-    Рассчитаем время переходного процесса
-    $$t_{\text{П}}\approx\dfrac{1}{\eta}\ln{\dfrac{1}{0.05}}\approx\dfrac{3}{\eta}=\dfrac{3}{?}\approx ?$$
+    Рассчитаем время переходного процесса. В качестве $\eta$ берется абсолютное значение вещественной части
+    ближайшего к мнимой оси корня, то есть $$\eta=|\Re{\left(s_{1,4}\right)}|=1.7336$$
+    $$t_{\text{П}}\approx\dfrac{1}{\eta}\ln{\dfrac{1}{0.05}}\approx\dfrac{3}{\eta}=\dfrac{3}{1.7336}\approx1.7305029995$$
 
 
     \textbf{Синтез системы с использованием полинома Ньютона.}
@@ -150,6 +153,72 @@
         \captionsetup{skip=0pt}
         \caption{Нормированные переходные характеристики системы с биноминальным характеристическим полиномом}
         \label{fig:norm_tf_newton}
+    \end{figure}
+    \noindent Найдем среднегеометрический корень $\omega_0$
+    $$\omega_0=\dfrac{t^*_{\text{П}}}{t_{\text{П}}}=\dfrac{7.8}{1.5}=5.2$$
+    Коэффициенты полинома выражаются как
+    $$a_j=\alpha_j\cdot\omega^{n-j}$$
+    Для случая с $n=4$ (см. методическое пособие)
+    $$
+    \begin{matrix}
+    \alpha_1=4\\
+    \alpha_2=6\\
+    \alpha_3=4
+    \end{matrix}
+    $$
+    Биномиальный полином для системы порядка $n=4$ имеет вид ($\alpha_3$ самый левый не единичный коэффициент, $\alpha_1$ самый правый)
+    $$s^4+4\omega s^3+6\omega^2s^2+4\omega^3s+\omega^4$$
+    Подставим найденный $\omega_0$, чтобы получить коэффициенты $a_j$. Биномиальный полином для нашего случая будет иметь вид
+    $$s^4+20.8s^3+162.24s^2+562.432s+731.1616$$
+    Найдем коэффициент $b$. Из биномиального полинома имеем коэффициент $$a_0=731.1616,$$
+    тогда $$b=k\cdot\omega^4=k\cdot a_0=2.5\cdot731.1616=1827.904$$
+    Модель вход-выход системы будет иметь вид
+    $$
+    y^{(4)}+20.8y^{(3)}+162.24y^{(2)}+562.432y^{(1)}+731.1616=1827.904g
+    $$
+    При биномиальном распределении Ньютона $n$ комплексных чисел $s_i$ принимаются
+    равными и вещественными, т.е. $s_i=-\omega$. Таким образом, $$s_i=-\omega_0=-5.2$$
+    Рассчитаем время переходного процесса
+    $$t_{\text{П}}\approx\dfrac{1}{\eta}\ln{\dfrac{1}{0.05}}\approx\dfrac{3}{\eta}=\dfrac{3}{5.2}\approx0.5769230769$$
+    Схема моделирования двух полиномов представлена на рисунке \ref{fig:scheme1}.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.6]{scheme1.png}
+        \captionsetup{skip=0pt}
+        \caption{Схема эксперимента}
+        \label{fig:scheme1}
+    \end{figure}
+    \noindent Параметры блоков ``Transfer Fcn'' в SIMULINK представлены на рисунке \ref{fig:windows1}. Построим графики.
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{task1_baterwort_window.png}
+            \caption{Параметры SIMULINK для полинома Баттерворта}
+            \label{fig:t1bw}
+        \end{subfigure}
+        \begin{subfigure}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{task1_newton_window.png}
+            \caption{Параметры SIMULINK для полинома Ньютона}
+            \label{fig:t1nw}
+        \end{subfigure}
+        \caption{Параметры SIMULINK для ``Transfer Fcn''}
+        \label{fig:windows1}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.3]{task_1_baterwort.jpg}
+        \captionsetup{skip=0pt}
+        \caption{График переходной характеристики системы: полином Баттерворта}
+        \label{fig:t1bat}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.3]{task_1_newton.jpg}
+        \captionsetup{skip=0pt}
+        \caption{График переходной характеристики системы: полином Ньютона}
+        \label{fig:t1newton}
     \end{figure}
 
 
