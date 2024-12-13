@@ -181,30 +181,8 @@
         y=x_3
     \end{cases}
     $$
-    Схема моделирования представлена на рис. \ref{fig:scheme1}. Параметры в SIMULINK представлены на рис. \ref{fig:windows1}. Выведем графики.
-    \begin{figure}[H]
-        \centering
-        \begin{subfigure}{0.3\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{W_p_1_window.png}
-            \caption{Параметры SIMULINK для передаточной функции $W(p)$}
-            \label{fig:wp1w}
-        \end{subfigure}
-        \begin{subfigure}{0.3\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{canonical_controlled_form_1_window.png}
-            \caption{Параметры SIMULINK для канонической управляемой формы}
-            \label{fig:ccf1w}
-        \end{subfigure}
-        \begin{subfigure}{0.3\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{canonical_observable_form_1_window.png}
-            \caption{Параметры SIMULINK для канонической наблюдаемой формы}
-            \label{fig:cof1w}
-        \end{subfigure}
-        \caption{Параметры SIMULINK для ``Transfer Fcn'' и ``State-Space''}
-        \label{fig:windows1}
-    \end{figure}
+    Схема моделирования представлена на рис. \ref{fig:scheme1}.
+    Параметры в SIMULINK представлены на рис. \ref{fig:windows1} под заголовком <<Приложения>>. Выведем графики.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.3]{W_p_1.jpg}
@@ -251,7 +229,7 @@
     осуществить моделирование исходной модели и полученных моделей вход-выход,
     вход-состояние-выход в канонической управляемой форме и вход-состояние-выход
     в канонической наблюдаемой форме, при ступенчатом единичном входном воздействии
-    и нулевых начальных условиях
+    и нулевых начальных условиях.
     \item Рассчитать матрицы преобразования исходной модели к каноническим формам.
     \end{compactitem}
 
@@ -367,30 +345,8 @@
         y=x_2
     \end{cases}
     $$
-    Схема моделирования представлена на рис. \ref{fig:scheme1}. Параметры в SIMULINK представлены на рис. \ref{fig:windows2}. Выведем графики.
-    \begin{figure}[H]
-        \centering
-        \begin{subfigure}{0.3\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{W_p_2_window.png}
-            \caption{Параметры SIMULINK для передаточной функции $W(p)$}
-            \label{fig:wp2w}
-        \end{subfigure}
-        \begin{subfigure}{0.3\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{canonical_controlled_form_2_window.png}
-            \caption{Параметры SIMULINK для канонической управляемой формы}
-            \label{fig:ccf2w}
-        \end{subfigure}
-        \begin{subfigure}{0.3\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{canonical_observable_form_2_window.png}
-            \caption{Параметры SIMULINK для канонической наблюдаемой формы}
-            \label{fig:cof2w}
-        \end{subfigure}
-        \caption{Параметры SIMULINK для ``Transfer Fcn'' и ``State-Space''}
-        \label{fig:windows2}
-    \end{figure}
+    Схема моделирования представлена на рис. \ref{fig:scheme1}.
+    Параметры в SIMULINK представлены на рис. \ref{fig:windows2} под заголовком <<Приложения>>. Выведем графики.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.3]{W_p_2.jpg}
@@ -426,7 +382,7 @@
     \item Используя блоки ``State-Space'', осуществить моделирование исходной и
     преобразованной систем при ступенчатом единичном входном воздействии и нулевых
     начальных условиях. На экран вывести выходные переменные двух систем. Схема
-    моделирования представлена на рисунке \ref{fig:scheme3}
+    моделирования представлена на рисунке \ref{fig:scheme3}.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.5]{scheme3.png}
@@ -504,24 +460,8 @@
     $$
     Передаточная функция остается такой же, как в задании 2
     $$W(p)=\dfrac{p+4.5}{p^2+2.5p+13.5}$$
-    Схема моделирования представлена на рис. \ref{fig:scheme3}. Параметры в SIMULINK представлены на рис. \ref{fig:windows3}. Выведем графики.
-    \begin{figure}[H]
-        \centering
-        \begin{subfigure}{0.3\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{model_3_window.png}
-            \caption{Параметры SIMULINK для исходной системы (см. задание 2)}
-            \label{fig:m3w}
-        \end{subfigure}
-        \begin{subfigure}{0.3\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{new_model_3_window.png}
-            \caption{Параметры SIMULINK для преобразованной системы}
-            \label{fig:nm3w}
-        \end{subfigure}
-        \caption{Параметры SIMULINK для ``State-Space''}
-        \label{fig:windows3}
-    \end{figure}
+    Схема моделирования представлена на рис. \ref{fig:scheme3}.
+    Параметры в SIMULINK представлены на рис. \ref{fig:windows3} под заголовком <<Приложения>>. Выведем графики.
     \begin{figure}[H]
         \centering
         \includegraphics[scale=0.3]{model_3.jpg}
@@ -546,4 +486,74 @@
     
     Использование канонических форм существенно упрощает решение многих практических задач,
     связанных с анализом и синтезом систем управления.
+
+
+    \section{Приложения}
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{W_p_1_window.png}
+            \caption{Параметры SIMULINK для передаточной функции $W(p)$}
+            \label{fig:wp1w}
+        \end{subfigure}
+        \begin{subfigure}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{canonical_controlled_form_1_window.png}
+            \caption{Параметры SIMULINK для канонической управляемой формы}
+            \label{fig:ccf1w}
+        \end{subfigure}
+        \begin{subfigure}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{canonical_observable_form_1_window.png}
+            \caption{Параметры SIMULINK для канонической наблюдаемой формы}
+            \label{fig:cof1w}
+        \end{subfigure}
+        \caption{Параметры SIMULINK для ``Transfer Fcn'' и ``State-Space'' для задания 1}
+        \label{fig:windows1}
+    \end{figure}
+
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{W_p_2_window.png}
+            \caption{Параметры SIMULINK для передаточной функции $W(p)$}
+            \label{fig:wp2w}
+        \end{subfigure}
+        \begin{subfigure}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{canonical_controlled_form_2_window.png}
+            \caption{Параметры SIMULINK для канонической управляемой формы}
+            \label{fig:ccf2w}
+        \end{subfigure}
+        \begin{subfigure}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{canonical_observable_form_2_window.png}
+            \caption{Параметры SIMULINK для канонической наблюдаемой формы}
+            \label{fig:cof2w}
+        \end{subfigure}
+        \caption{Параметры SIMULINK для ``Transfer Fcn'' и ``State-Space'' для задания 2}
+        \label{fig:windows2}
+    \end{figure}
+
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{model_3_window.png}
+            \caption{Параметры SIMULINK для исходной системы (см. задание 2)}
+            \label{fig:m3w}
+        \end{subfigure}
+        \begin{subfigure}{0.3\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{new_model_3_window.png}
+            \caption{Параметры SIMULINK для преобразованной системы}
+            \label{fig:nm3w}
+        \end{subfigure}
+        \caption{Параметры SIMULINK для ``State-Space'' для задания 3}
+        \label{fig:windows3}
+    \end{figure}
 \end{document}
